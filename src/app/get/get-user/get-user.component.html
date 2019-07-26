@@ -1,0 +1,35 @@
+<div class="container">
+  <label for="id"> ID:</label>
+  <input type = "text" #textId name="id" id="id" class="form-control">
+  <button class="btn btn-success" (click)="getUser(textId.value)">Buscar Usuario</button>
+</div>
+<div class="container">
+  <ng-container *ngIf="notFound">
+      <div class="alert alert-warning" role="alert">
+          User Not Found
+      </div>
+  </ng-container>
+  
+  <ng-container *ngIf="user">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Email</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{ user.id }}</th>
+              <td>{{ user.email }}</td>
+              <td>{{ user.first_name }}</td>
+              <td>{{ user.last_name }}</td>
+            </tr>
+          </tbody>
+        </table>
+  </ng-container>
+</div>
+
+

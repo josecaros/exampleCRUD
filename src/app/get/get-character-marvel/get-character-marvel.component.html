@@ -1,0 +1,23 @@
+<div class="container">
+  <button class="btn btn-danger" (click)="getListCharacters()">Personajes Marvel</button>
+</div>
+<ng-container *ngIf="characters">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let character of characters">
+            <th scope="row">{{ character.id }}</th>
+            <td>{{ character.name }}</td>
+            <td>{{ character.description }}</td>
+            <td>{{ character.modified }}</td>
+          </tr>
+        </tbody>
+      </table>
+</ng-container>

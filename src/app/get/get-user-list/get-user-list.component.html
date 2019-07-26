@@ -1,0 +1,30 @@
+<div class="container">
+  <label for="page"> Pagina</label>
+  <input type = "text" #textId name="page" id="page" class="form-control">
+  <button class="btn btn-success" (click)="getListUser(textId.value)">Mostrar Usuarios</button>
+</div>
+<ng-container *ngIf="notFound">
+    <div class="alert alert-warning" role="alert">
+        User Not Found
+    </div>
+</ng-container>
+<ng-container *ngIf="users">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{ user.id }}</th>
+            <td>{{ user.email }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+          </tr>
+        </tbody>
+      </table>
+</ng-container>
